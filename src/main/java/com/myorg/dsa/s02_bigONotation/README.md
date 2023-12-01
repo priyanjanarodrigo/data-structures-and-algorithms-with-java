@@ -344,11 +344,11 @@ public class BigOofLogNDemo {
 
 > Initial stage of the sorted array [1, 2, 3, 4, 5, 6, 7, 8]
 
-<h3>Step 1 &rarr;  [1, 2, 3, 4]  ~~[5, 6, 7, 8]~~</h3>
+<h3>Step 1 &rarr;  [1, 2, 3, 4]  <strike>[5, 6, 7, 8]</strike></h3>
 
-<h3>Step 2 &rarr;  [1, 2,] ~~[3, 4]~~</h3>
+<h3>Step 2 &rarr;  [1, 2,] <strike>[3, 4]</strike></h3>
 
-<h3>Step 3 &rarr;  [1] ~~[2]~~</h3>
+<h3>Step 3 &rarr;  [1] <strike>[2]</strike></h3>
 
 - Above it is clear that the program has executed `3` steps in order to find the index of the
   value `1`. And remember we had `8` items in the array.
@@ -363,13 +363,13 @@ public class BigOofLogNDemo {
   sub two of eight equals three).
 
 
-  <h2>**2<sup>3</sup> = 8** &rarr; **log<sub>2</sub> 8 = 3**</h2>
+  <h2>2<sup>3</sup> = 8 &rarr; log<sub>2</sub> 8 = 3</h2>
 
 
 - The idea behind **log<sub>2</sub> 8 = 3**
   
 
-  <h2>**log<sub>2</sub> 8 = 3**</h2>
+  <h2>log<sub>2</sub> 8 = 3</h2>
 
 
 > If we took the number `8` and repeatedly divided it by `2`, how many times would it take to get
@@ -383,7 +383,7 @@ public class BigOofLogNDemo {
   would we need to cut this number half to get down to one item ? It is surprisingly as low as 31
   times.
 
-  <h2>**log<sub>2</sub> 1,073,741,824 = 31**</h2>
+  <h2>log<sub>2</sub> 1,073,741,824 = 31</h2>
 
 - So we can have an array with over a billion items in it and find any number in that array in 31
   steps (worst case). That is the power ot `O(log n)`. It is the highest time efficiency that an
