@@ -391,6 +391,12 @@ public class BigOofLogNDemo {
 
 ## 1.7 Big O : O(*n*log n)
 
+> O(<i>n</i>log n): Linearithmic Time
+
+> Splits and sorts or searches data.
+
+> Example: Merge sort, quick sort.
+
 - This is also used with some sorting algorithms such as `Quick Sort` and `Merge Sort` (Better to
   find out more on this)
 
