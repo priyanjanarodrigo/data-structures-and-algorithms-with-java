@@ -362,12 +362,15 @@ public class BigOofLogNDemo {
   is eight). So when it is converted into a logarithm it looks like **log<sub>2</sub> 8 = 3** (log
   sub two of eight equals three).
 
+
   <h2>**2<sup>3</sup> = 8** &rarr; **log<sub>2</sub> 8 = 3**</h2>
 
 
 - The idea behind **log<sub>2</sub> 8 = 3**
+  
 
   <h2>**log<sub>2</sub> 8 = 3**</h2>
+
 
 > If we took the number `8` and repeatedly divided it by `2`, how many times would it take to get
 > down to one item?. And that is `3` times.
