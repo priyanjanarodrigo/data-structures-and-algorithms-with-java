@@ -15,6 +15,21 @@ public class LinkedListDemo {
     testFunctionalitiesOfAnInitiallyEmptyLinkedList();
     removingLastNodeFromAnEmptyLinkedList();
     removingLastNodeFromAnLinkedListWithOneNode();
+    testPrepend();
+  }
+
+  public static void testPrepend() {
+    LinkedList linkedList = new LinkedList();
+    linkedList.printAllDetails();
+    linkedList.prepend(10);
+    linkedList.prepend(20);
+    linkedList.printAllDetails();
+
+    LinkedList linkedList2 = new LinkedList(44);
+    linkedList2.printAllDetails();
+    linkedList2.prepend(55);
+    linkedList2.prepend(66);
+    linkedList2.printAllDetails();
   }
 
   public static void testFunctionalitiesOfAnInitiallyValueAssignedLinkedList() {
@@ -57,7 +72,7 @@ public class LinkedListDemo {
     System.out.println("\nremovingLastNodeFromAnLinkedListWithOneNode() =========================");
     LinkedList linkedListWithOneNode = new LinkedList(2);
     linkedListWithOneNode.printAllDetails();
-    System.out.println("Node Removed : "+ linkedListWithOneNode.removeLast());
+    System.out.println("Node Removed : " + linkedListWithOneNode.removeLast());
     linkedListWithOneNode.printAllDetails();
   }
 }

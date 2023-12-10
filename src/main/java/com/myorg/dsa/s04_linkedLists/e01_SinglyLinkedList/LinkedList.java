@@ -81,11 +81,13 @@ public class LinkedList {
    */
   public void prepend(int value) {
     Node newNode = new Node(value);
+
     if (head == null) {
       tail = newNode;
+    } else {
+      newNode.next = head;
     }
 
-    newNode.next = head;
     head = newNode;
     length++;
   }
