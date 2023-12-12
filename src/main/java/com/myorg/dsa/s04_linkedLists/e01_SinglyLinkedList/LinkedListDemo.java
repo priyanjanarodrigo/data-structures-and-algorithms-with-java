@@ -16,6 +16,135 @@ public class LinkedListDemo {
     removingLastNodeFromAnEmptyLinkedList();
     removingLastNodeFromAnLinkedListWithOneNode();
     testPrepend();
+    testRemoveFirst();
+    testGet();
+    testSet();
+    testInsert();
+    testRemove();
+    testReverse();
+  }
+
+  public static void testReverse() {
+    LinkedList linkedList = new LinkedList(1);
+    linkedList.append(2);
+    linkedList.append(3);
+    linkedList.append(4);
+    linkedList.append(5);
+    linkedList.printAllDetails();
+
+    System.out.println("Reversing the linked list");
+    linkedList.reverse();
+    linkedList.printAllDetails();
+  }
+
+  public static void testRemove() {
+    LinkedList linkedList = new LinkedList(1);
+    linkedList.append(2);
+    linkedList.append(3);
+    linkedList.append(4);
+    linkedList.append(5);
+    linkedList.printAllDetails();
+
+    System.out.println("Remove the Node at index : " + -1 + " = " + linkedList.remove(-1));
+    linkedList.printAllDetails();
+
+    System.out.println("Remove the Node at index : " + 0 + " = " + linkedList.remove(0));
+    linkedList.printAllDetails();
+
+    System.out.println("Remove the Node at index : " + 2 + " = " + linkedList.remove(2));
+    linkedList.printAllDetails();
+
+    System.out.println("Remove the Node at index : " + 2 + " = " + linkedList.remove(2));
+    linkedList.printAllDetails();
+
+    System.out.println("Remove the Node at index : " + 2 + " = " + linkedList.remove(2));
+  }
+
+  public static void testInsert() {
+    LinkedList linkedList = new LinkedList(33);
+    linkedList.append(44);
+    linkedList.append(55);
+    linkedList.append(66);
+    linkedList.append(77);
+    linkedList.printAllDetails();
+
+    System.out.println(
+        "Insert value: " + 11 + " at the index: " + -1 + " = " + linkedList.insert(-1, 11));
+    linkedList.printAllDetails();
+
+    System.out.println(
+        "Insert value: " + 99 + " at the index: " + 0 + " = " + linkedList.insert(0, 99));
+    linkedList.printAllDetails();
+
+    System.out.println(
+        "Insert value: " + 100 + " at the index: " + 2 + " = " + linkedList.insert(2, 100));
+    linkedList.printAllDetails();
+
+    System.out.println(
+        "Insert value: " + 200 + " at the index: " + 5 + " = " + linkedList.insert(5, 200));
+    linkedList.printAllDetails();
+
+    System.out.println(
+        "Insert value: " + 400 + " at the index: " + 8 + " = " + linkedList.insert(8, 400));
+    linkedList.printAllDetails();
+
+    System.out.println(
+        "Insert value: " + 960 + " at the index: " + 10 + " = " + linkedList.insert(10, 960));
+    linkedList.printAllDetails();
+  }
+
+  public static void testSet() {
+    LinkedList linkedList = new LinkedList(1);
+    linkedList.append(2);
+    linkedList.append(3);
+    linkedList.append(4);
+    linkedList.append(5);
+    linkedList.printAllDetails();
+
+    System.out.println(
+        "Set value: " + 666 + " at the index: " + -1 + " = " + linkedList.set(-1, 666));
+    System.out.println("Set value: " + 88 + " at the index: " + 0 + " = " + linkedList.set(0, 88));
+    System.out.println("Set value: " + 99 + " at the index: " + 3 + " = " + linkedList.set(3, 99));
+    System.out.println(
+        "Set value: " + 111 + " at the index: " + 4 + " = " + linkedList.set(4, 111));
+    System.out.println(
+        "Set value: " + 555 + " at the index: " + 5 + " = " + linkedList.set(5, 555));
+    linkedList.printAllDetails();
+  }
+
+  public static void testGet() {
+    LinkedList linkedList = new LinkedList(10);
+    linkedList.append(20);
+    linkedList.append(30);
+    linkedList.append(40);
+    linkedList.append(50);
+    linkedList.printAllDetails();
+
+    System.out.println("Node at index " + -1 + " is " + linkedList.get(-1));
+    System.out.println("Node at index " + 0 + " is " + linkedList.get(0));
+    System.out.println("Node at index " + 1 + " is " + linkedList.get(1));
+    System.out.println("Node at index " + 2 + " is " + linkedList.get(2));
+    System.out.println("Node at index " + 3 + " is " + linkedList.get(3));
+    System.out.println("Node at index " + 4 + " is " + linkedList.get(4));
+    System.out.println("Node at index " + 5 + " is " + linkedList.get(5));
+  }
+
+  public static void testRemoveFirst() {
+    LinkedList linkedList = new LinkedList();
+    linkedList.printAllDetails();
+    System.out.println("First item removed : " + linkedList.removeFirst());
+
+    linkedList.append(1);
+    linkedList.append(2);
+    linkedList.append(3);
+    linkedList.append(4);
+    linkedList.printAllDetails();
+
+    System.out.println("First item removed : " + linkedList.removeFirst());
+    linkedList.printAllDetails();
+
+    System.out.println("First item removed : " + linkedList.removeFirst());
+    linkedList.printAllDetails();
   }
 
   public static void testPrepend() {

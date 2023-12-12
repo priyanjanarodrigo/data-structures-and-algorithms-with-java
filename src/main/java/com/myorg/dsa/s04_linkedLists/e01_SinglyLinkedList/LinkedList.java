@@ -122,7 +122,7 @@ public class LinkedList {
 
     /* If the length is 0 after reducing the length from above line of code. (Which means there has
     been only 1 element in the linked list) */
-    if (this.length == 0) {
+    if (length == 0) {
       head = null;
       tail = null;
     }
@@ -131,65 +131,162 @@ public class LinkedList {
   }
 
   /**
-   * Removes the fist node from the linked list.
+   * Removes the fist node from the linked list and returns it. In case if the length == 0 (head
+   * ==null), then, null will be returned.
    *
    * @return Node
    */
   public Node removeFirst() {
-    return null;
+    if (head == null) {
+      return null;
+    }
+
+    Node previousHead = head;
+    head = head.next;
+    previousHead.next = null;
+    length--;
+
+    if (length == 0) {
+      tail = null;
+    }
+
+    return previousHead;
   }
 
   /**
-   * Inserts a new Node with the provided value at the specified index.
+   * Sets the provided value to the node which is located at the specified index.
+   *
+   * In case if an invalid index is provided (if the index is less than 0 or greater than or equals
+   * to the length of the linked list), then it returns false. (leveraging get method validations)
+   *
+   * Time Complexity : O(N) as we have to iterate through the list in oder to reach out the
+   * specified index and set a new value to an existing Node at that particular index.
+   *
+   * @param index Index at which the new Node is inserted
+   * @param value Value of the new Node
+   *
+   * @return boolean
+   */
+  public boolean set(int index, int value) {
+    Node nodeAtIndex = get(index); // We leverage the functionality of get method here
+
+    if (nodeAtIndex != null) {
+      nodeAtIndex.value = value;
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * Inserts a new node with the specified value at a particular index.
    *
    * Time Complexity : O(N) as we have to iterate through the list in oder to reach out the
    * specified index and insert a new Node at that particular position.
    *
    * @param index Index at which the new Node is inserted
    * @param value Value of the new Node
+   *
+   * @return boolean
    */
-  public void insert(int index, int value) {
-    // TODO: to be implemented
+  public boolean insert(int index, int value) {
+    if (index < 0 || index > length) {
+      return false;
+    }
+
+    if (index == 0) {
+      // Inserting before the existing head
+      prepend(value);
+    } else if (index == length) {
+      // Inserting a new Node after the existing tail
+      append(value);
+    } else {
+      Node newNode = new Node(value);
+      // Fetches the node before the index to which the new Node is inserted to
+      Node nodeBeforeIndex = get(index - 1);
+      newNode.next = nodeBeforeIndex.next;
+      nodeBeforeIndex.next = newNode;
+      length++; // for above 2 if conditions, the length is incremented implicitly within prepend or append
+    }
+
+    return true;
   }
 
-
   /**
-   * Removes the specified Node at the specified index
-   * @param index Index at which the Node to be removed exists
+   * Removes the specified Node at the specified index.
    *
    * Time Complexity : O(N) as we have to iterate through the list in oder to reach out the
    * specified index and delete the existing Node there.
    *
+   * @param index Index at which the Node to be removed exists
+   *
    * @return Node
    */
   public Node remove(int index) {
-    return null; // TODO: to be implemented
+    if (index < 0 || index >= length) {
+      return null;
+    }
+
+    Node removedNode;
+
+    if (index == 0) {
+      removedNode = removeFirst();
+    } else if (index == length - 1) {
+      removedNode = removeLast();
+    } else {
+      Node previousNode = get(index - 1);
+      removedNode = previousNode.next;
+
+      previousNode.next = removedNode.next;
+      removedNode.next = null;
+      length--;
+    }
+
+    return removedNode;
   }
 
-
   /**
-   * Searches the node by the given index and returns it.
+   * Searches the node by the given index and returns it.(lookup by index).
+   *
+   * If the provided index is out of bounds, then, "null" will be returned immediately.
    *
    * Time Complexity : O(N) as we have to iterate through the list in oder to search for the Node
    * which is available at the given index.
    *
    * @return Node
    */
-  public Node lookUpByVIndex(int index) {
-    return null; // TODO: to be implemented
+  public Node get(int index) {
+    if (index < 0 || index >= length) {
+      return null;
+    }
+
+    Node currentNode = head;
+
+    for (int i = 0; i < index; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
   }
 
-
   /**
-   * Searches the node by the provided value and returns it.
-   *
-   * Time Complexity : O(N) as we have to iterate through the list in oder to search the Node with
-   * the provided value at some index and return it.
-   *
-   * @return Node
+   * Reverses the LinkedList in place without making any duplicate copies of it.
    */
-  public Node lookUpByValue(int value) {
-    return null; // TODO: to be implemented
+  public void reverse() {
+    // Switching the head and tail
+    Node temp = head;
+    head = tail;
+    tail = temp;
+
+    // Reversing back the Node.next
+    Node after = temp.next;
+    Node before = null;
+
+    for (int i = 0; i < length; i++) {
+      after = temp.next; // In the first iteration this is already the status
+      temp.next = before;
+      before = temp;
+      temp = after;
+    }
   }
 
   /**
