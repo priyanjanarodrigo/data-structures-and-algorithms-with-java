@@ -1,9 +1,9 @@
 package com.myorg.dsa.s04_linkedLists.e01_SinglyLinkedList;
 
 /**
- * LinkedList class : Defines a singly linked list.
+ * SinglyLinkedList class : Defines a singly linked list.
  */
-public class LinkedList {
+public class SinglyLinkedList {
 
   /**
    * Nested inner class Node: Defines a single node.
@@ -35,10 +35,10 @@ public class LinkedList {
   private Node tail; // pointer to the tail of the linked list
 
   // Default constructor for initializing an empty linked list
-  public LinkedList() {
+  public SinglyLinkedList() {
   }
 
-  public LinkedList(int value) {
+  public SinglyLinkedList(int value) {
     Node node = new Node(value);
     head = node;
     tail = node;
@@ -48,12 +48,12 @@ public class LinkedList {
   /**
    * Appends a Node at the end of the linked list. If the head is null, then, both the head and tail
    * are assigned to the new Node.
-   *
+   * <p>
    * Otherwise, new Node will be assigned as the current tail's next reference and then, the tail
    * pointer will be assigned/pointed to the new Node accordingly.
-   *
+   * <p>
    * At last, the length of the linked list is incremented by 1.
-   *
+   * <p>
    * Time Complexity: O(1) [Constant Time] as we simply attach one node at the end and point the
    * tail to it. It always involves one addition of Node without iterating through the others.
    *
@@ -75,7 +75,7 @@ public class LinkedList {
 
   /**
    * Attaches a Node to the starting end as the new head (the new first element/head).
-   *
+   * <p>
    * Time Complexity: O(1) [Constant Time] as we simply attach one node from the front and point the
    * head to it. It always involves one addition of Node without iterating through the others
    */
@@ -95,7 +95,7 @@ public class LinkedList {
   /**
    * Removes the last node from the linked list and returns it. Returns null if the linked list
    * doesn't have nodes(if it is empty).
-   *
+   * <p>
    * Time Complexity: O(N) as it's required to start at the head and iterate though the list until
    * we get to the Node before tail and then set it as the tail (and then tail.next null obviously).
    * Because we had to touch all the Nodes and iterate though the list to reach for the Node before
@@ -133,6 +133,9 @@ public class LinkedList {
   /**
    * Removes the fist node from the linked list and returns it. In case if the length == 0 (head
    * ==null), then, null will be returned.
+   * <p>
+   * Time Complexity: O(1) [Constant Time] as we simply remove the first node. No iteration is
+   * involved here.
    *
    * @return Node
    */
@@ -155,16 +158,15 @@ public class LinkedList {
 
   /**
    * Sets the provided value to the node which is located at the specified index.
-   *
+   * <p>
    * In case if an invalid index is provided (if the index is less than 0 or greater than or equals
    * to the length of the linked list), then it returns false. (leveraging get method validations)
-   *
+   * <p>
    * Time Complexity : O(N) as we have to iterate through the list in oder to reach out the
    * specified index and set a new value to an existing Node at that particular index.
    *
    * @param index Index at which the new Node is inserted
    * @param value Value of the new Node
-   *
    * @return boolean
    */
   public boolean set(int index, int value) {
@@ -180,13 +182,12 @@ public class LinkedList {
 
   /**
    * Inserts a new node with the specified value at a particular index.
-   *
+   * <p>
    * Time Complexity : O(N) as we have to iterate through the list in oder to reach out the
    * specified index and insert a new Node at that particular position.
    *
    * @param index Index at which the new Node is inserted
    * @param value Value of the new Node
-   *
    * @return boolean
    */
   public boolean insert(int index, int value) {
@@ -214,12 +215,11 @@ public class LinkedList {
 
   /**
    * Removes the specified Node at the specified index.
-   *
+   * <p>
    * Time Complexity : O(N) as we have to iterate through the list in oder to reach out the
    * specified index and delete the existing Node there.
    *
    * @param index Index at which the Node to be removed exists
-   *
    * @return Node
    */
   public Node remove(int index) {
@@ -247,9 +247,9 @@ public class LinkedList {
 
   /**
    * Searches the node by the given index and returns it.(lookup by index).
-   *
+   * <p>
    * If the provided index is out of bounds, then, "null" will be returned immediately.
-   *
+   * <p>
    * Time Complexity : O(N) as we have to iterate through the list in oder to search for the Node
    * which is available at the given index.
    *
@@ -269,7 +269,7 @@ public class LinkedList {
   }
 
   /**
-   * Reverses the LinkedList in place without making any duplicate copies of it.
+   * Reverses the SinglyLinkedList in place without making any duplicate copies of it.
    */
   public void reverse() {
     // Switching the head and tail
@@ -282,7 +282,7 @@ public class LinkedList {
     Node before = null;
 
     for (int i = 0; i < length; i++) {
-      after = temp.next; // In the first iteration this is already the status
+      after = temp.next; // In the first iteration, this is already the status
       temp.next = before;
       before = temp;
       temp = after;
@@ -290,7 +290,7 @@ public class LinkedList {
   }
 
   /**
-   * Returns the String representation of the LinkedList.
+   * Returns the String representation of the SinglyLinkedList.
    *
    * @return String
    */
