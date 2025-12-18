@@ -310,6 +310,10 @@ public class DoublyLinkedList {
    * @return Node
    */
   public Node remove(int index) {
+    if (index < 0 || index >= length) {
+      return null;
+    }
+
     Node removedNode;
     if (index == 0) {
       removedNode = removeFirst();
@@ -338,5 +342,46 @@ public class DoublyLinkedList {
     }
 
     return removedNode;
+  }
+
+  // INTERVIEW QUESTIONS ==========================================================================
+
+  /*
+   * 1) Palindrome Checker
+   * =====================
+   *  Write a method to determine whether a given doubly linked list reads the same forwards and
+   *  backwards.
+   *
+   *  For example, if the list contains the values [1, 2, 3, 2, 1], then the method should return
+   *  true, since the list is a palindrome.
+   *
+   *  If the list contains the values [1, 2, 3, 4, 5], then the method should return false, since
+   *  the list is not a palindrome.
+   *
+   *  Method name: isPalindrome
+   *  Return Type: boolean
+   */
+  public boolean isPalindrome() {
+    // If the list is empty or has only one node, it is considered a palindrome
+    if (length <= 1) {
+      return true;
+    }
+
+    Node start = head;
+    Node end = tail;
+
+    /*
+     * The second condition "start.prev != end" is included as an additional safeguard to handle
+     * cases where the list has an even number of elements, ensuring that the loop stops before
+     * start and end cross over each other.
+     */
+    while (start != end && start.prev != end) {
+      if (start.value != end.value) {
+        return false;
+      }
+      start = start.next;
+      end = end.prev;
+    }
+    return true;
   }
 }

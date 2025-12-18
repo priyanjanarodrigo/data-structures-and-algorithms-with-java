@@ -42,6 +42,9 @@ public class DoublyLinkedListDemo {
 
     System.out.println("Remove item at index " + 1 + " : " + doublyLinkedList.remove(1));
     doublyLinkedList.printAllDetails();
+
+    System.out.println("Remove item at index " + 20 + " : " + doublyLinkedList.remove(20));
+    doublyLinkedList.printAllDetails();
   }
 
   public static void testInsert() {

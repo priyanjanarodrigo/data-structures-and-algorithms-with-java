@@ -1,19 +1,29 @@
 package com.myorg.dsa.s04_linkedLists.e01_SinglyLinkedList;
 
 /**
- * SinglyLinkedList class : Defines a singly linked list.
+ * <h1>SinglyLinkedList class</h1>
+ * <p>Defines the structure and functionalities of a singly linked list data structure</p>
  */
 public class SinglyLinkedList {
 
   /**
-   * Nested inner class Node: Defines a single node.
+   * <h1>Node class</h1>
+   * <p>Represents a single node in the linked list Each node contains a value and a reference to
+   * the next node in the list. Node is a nested inner class within SinglyLinkedList.</p>
    */
   class Node {
 
-    int value; // Value/ data element of the node
+    // Value/ data element of the node
+    int value;
 
-    Node next; // Keeps the pointer to the next node
+    // Pointer/reference to the next node in the linked list
+    Node next;
 
+    /**
+     * Parameterized constructor to initialize a Node with the specified value.
+     *
+     * @param value Value to be assigned to the Node
+     */
     public Node(int value) {
       this.value = value;
     }
@@ -23,21 +33,33 @@ public class SinglyLinkedList {
      *
      * @return String
      */
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
   }
 
-  private int length; // Keeps track of the linked list
+  // Length of the linked list
+  private int length;
 
-  private Node head; //  Pointer to the head of the linked list
+  // pointer to the head of the linked list
+  private Node head;
 
-  private Node tail; // pointer to the tail of the linked list
+  // pointer to the tail of the linked list
+  private Node tail;
 
-  // Default constructor for initializing an empty linked list
+  /**
+   * Default constructor/ No-arg constructor for initializing an empty linked list
+   */
   public SinglyLinkedList() {
   }
 
+  /**
+   * Parameterized constructor which initializes a SinglyLinkedList with the initial node with
+   * specified value.
+   *
+   * @param value Value to be assigned to the initial node
+   */
   public SinglyLinkedList(int value) {
     Node node = new Node(value);
     head = node;
@@ -46,23 +68,34 @@ public class SinglyLinkedList {
   }
 
   /**
-   * Appends a Node at the end of the linked list. If the head is null, then, both the head and tail
-   * are assigned to the new Node.
+   * <h2>append</h2>
+   * <hr>
+   * <p>Attaches a Node to the end as the new tail (the new last element/tail).</p>
+   * <br>
+   * <b>Time Complexity: O(1) [Constant Time] </b>
    * <p>
-   * Otherwise, new Node will be assigned as the current tail's next reference and then, the tail
-   * pointer will be assigned/pointed to the new Node accordingly.
+   * As we simply attach one node from the end and point the tail to it. It always involves one
+   * addition of Node without iterating through the others.
+   * </p>
+   * <br>
+   * <b> Space Complexity: O(1) [Constant Space]</b>
+   * <p>As we are not using any extra space that grows with input size (only constant extra space
+   * is required for the new node).</p>
+   * <br>
    * <p>
-   * At last, the length of the linked list is incremented by 1.
-   * <p>
-   * Time Complexity: O(1) [Constant Time] as we simply attach one node at the end and point the
-   * tail to it. It always involves one addition of Node without iterating through the others.
+   * Note: We are maintaining a tail pointer/reference to the last Node of the linked list. This is
+   * crucial for achieving O(1) time complexity for the append operation. Without a tail reference,
+   * we would have to traverse the entire list to find the last Node, resulting in O(N) time
+   * complexity.
+   * </p>
    *
-   * @param value Data value to be assigned to the Node.
+   * @param value Value of the new Node.
    */
   public void append(int value) {
     Node node = new Node(value);
 
     // if(length == 0) and if(tail == null) are also valid checks for this.
+
     if (head == null) {
       head = node;
     } else {
@@ -120,8 +153,8 @@ public class SinglyLinkedList {
     tail.next = null;
     this.length--;
 
-    /* If the length is 0 after reducing the length from above line of code. (Which means there has
-    been only 1 element in the linked list) */
+    /* If the length is 0 after reducing the length from the above line of code. (Which means
+       there has been only 1 element in the linked list) */
     if (length == 0) {
       head = null;
       tail = null;
@@ -162,8 +195,8 @@ public class SinglyLinkedList {
    * In case if an invalid index is provided (if the index is less than 0 or greater than or equals
    * to the length of the linked list), then it returns false. (leveraging get method validations)
    * <p>
-   * Time Complexity : O(N) as we have to iterate through the list in oder to reach out the
-   * specified index and set a new value to an existing Node at that particular index.
+   * Time Complexity: O(N) as we have to iterate through the list in oder to reach out the specified
+   * index and set a new value to an existing Node at that particular index.
    *
    * @param index Index at which the new Node is inserted
    * @param value Value of the new Node
