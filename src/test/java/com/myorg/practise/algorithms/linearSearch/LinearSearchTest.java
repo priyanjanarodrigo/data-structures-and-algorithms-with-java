@@ -1,4 +1,4 @@
-package com.myorg.practise.linearSearch;
+package com.myorg.practise.algorithms.linearSearch;
 
 import static com.myorg.practise.algorithms.linear_search.LinearSearch.performLinearSearch;
 import static org.junit.jupiter.api.Assertions.assertEquals;
