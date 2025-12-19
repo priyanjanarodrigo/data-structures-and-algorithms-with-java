@@ -12,18 +12,24 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/**
+ * <h1>SinglyLinkedListTest class</h1>
+ * <p>Addresses Unit Tests for SinglyLinkedList class.</p>
+ */
 @DisplayName("SinglyLinkedList Test Suite")
 class SinglyLinkedListTest {
 
   private SinglyLinkedList list;
 
+  /**
+   * Sets up a new SinglyLinkedList instance before each test.
+   */
   @BeforeEach
   void setUp() {
     list = new SinglyLinkedList();
   }
 
-  // ============ Constructor Tests ============
-
+  /* Constructor Tests ========================================================================== */
   @Test
   @DisplayName("Default constructor should initialize empty list with null head and tail")
   void testDefaultConstructor() {
@@ -44,8 +50,7 @@ class SinglyLinkedListTest {
     assertSame(list.head, list.tail, "Head and tail should reference same node");
   }
 
-  // ============ isEmpty Tests ============
-
+  /* isEmpty Tests ============================================================================== */
   @Test
   @DisplayName("isEmpty should return true for newly created list")
   void testIsEmptyOnNewList() {
@@ -67,8 +72,7 @@ class SinglyLinkedListTest {
     assertTrue(list.isEmpty(), "List should be empty after removing only element");
   }
 
-  // ============ append Tests ============
-
+  /* append Tests =============================================================================== */
   @Test
   @DisplayName("append to empty list should set both head and tail")
   void testAppendToEmptyList() {
@@ -90,8 +94,7 @@ class SinglyLinkedListTest {
     assertSame(list.head.next.next, list.tail, "Tail should be reachable via next pointers");
   }
 
-  // ============ prepend Tests ============
-
+  /* prepend Tests ============================================================================== */
   @Test
   @DisplayName("prepend to empty list should set both head and tail")
   void testPrependToEmptyList() {
@@ -112,7 +115,7 @@ class SinglyLinkedListTest {
     assertEquals(3, list.length, "Length should be 3");
   }
 
-  // ============ removeFirst Tests ============
+  /* removeFirst Tests ========================================================================== */
 
   @Test
   @DisplayName("removeFirst from empty list should return null and not modify list")
@@ -144,8 +147,7 @@ class SinglyLinkedListTest {
     assertEquals(2, list.length, "Length should be 2");
   }
 
-  // ============ removeLast Tests ============
-
+  /* removeLast Tests =========================================================================== */
   @Test
   @DisplayName("removeLast from empty list should return null")
   void testRemoveLastFromEmptyList() {
@@ -175,8 +177,7 @@ class SinglyLinkedListTest {
     assertEquals(2, list.length, "Length should be 2");
   }
 
-  // ============ get Tests ============
-
+  /* get Tests ================================================================================== */
   @Test
   @DisplayName("get with negative index should return null")
   void testGetWithInvalidNegativeIndex() {
@@ -224,8 +225,7 @@ class SinglyLinkedListTest {
     assertEquals(2, node.value, "Middle element should be 2");
   }
 
-  // ============ set Tests ============
-
+  /* set Tests ================================================================================== */
   @Test
   @DisplayName("set with invalid index should return false")
   void testSetWithInvalidIndex() {
@@ -265,8 +265,7 @@ class SinglyLinkedListTest {
     assertEquals(15, list.get(1).value, "Middle element should be updated to 15");
   }
 
-  // ============ insert Tests ============
-
+  /* insert Tests =============================================================================== */
   @Test
   @DisplayName("insert with negative index should return false")
   void testInsertWithInvalidNegativeIndex() {
@@ -316,7 +315,7 @@ class SinglyLinkedListTest {
     assertEquals(3, list.get(2).value, "Element at index 2 should be 3");
   }
 
-  // ============ remove Tests ============
+  /* remove Tests =============================================================================== */
 
   @Test
   @DisplayName("remove with negative index should return null")
@@ -370,7 +369,7 @@ class SinglyLinkedListTest {
     assertEquals(2, list.length, "Length should be 2");
   }
 
-  // ============ reverse Tests ============
+  /* reverse Tests ============================================================================== */
 
   @Test
   @DisplayName("reverse empty list should remain empty")
@@ -413,7 +412,7 @@ class SinglyLinkedListTest {
     assertEquals(1, list.get(2).value, "Element at index 2 should be 1");
   }
 
-  // ============ toString Tests ============
+  /* toString Tests ============================================================================= */
 
   @Test
   @DisplayName("toString empty list should return empty brackets")
